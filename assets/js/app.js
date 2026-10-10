@@ -706,9 +706,14 @@
 
   /* ========================================================================== main */
   async function main() {
+    // Apply the saved theme and attach UI listeners immediately so that
+    // search, the theme toggle, the sidebar and keyboard shortcuts work
+    // right away — Store.init() fetches the WASM + SQLite file and can take
+    // a few seconds on a cold load. Search falls back to the embedded dataset
+    // until the DB is ready, then switches to SQL automatically.
     applyTheme(currentTheme());
-    await Store.init();
     bindGlobals();
+    await Store.init();
     renderSidebar();
     if ($("#indexRoot")) await initIndex();
     if ($("#noteRoot")) await initNote();

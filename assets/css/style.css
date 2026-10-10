@@ -174,6 +174,7 @@ button { font-family: inherit; cursor: pointer; }
 .topbar-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
 .topbar-search svg { color: var(--text-3); flex-shrink: 0; }
 .topbar-search input { flex: 1; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 0.93rem; font-family: inherit; }
+.topbar-search input::placeholder, .search-panel input::placeholder { color: var(--text-3); }
 .kbd { font-size: 0.72rem; color: var(--text-3); border: 1px solid var(--border-2); border-radius: 6px; padding: 2px 6px; background: var(--surface-2); font-family: var(--font-mono); }
 
 .topbar-spacer { flex: 1; }
@@ -202,9 +203,10 @@ button { font-family: inherit; cursor: pointer; }
 .hero-search { display: flex; gap: 10px; max-width: 560px; }
 .hero-search input {
   flex: 1; border: 0; outline: 0; border-radius: 15px; padding: 15px 20px;
-  font-size: 1rem; font-family: inherit; color: var(--text);
+  font-size: 1rem; font-family: inherit; color: #141a2e; caret-color: #141a2e;
   background: rgba(255, 255, 255, 0.96); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
 }
+.hero-search input::placeholder { color: rgba(20, 26, 46, 0.45); }
 .hero-search button {
   border: 0; border-radius: 15px; padding: 0 26px; font-weight: 700; font-size: 1rem;
   background: #141a2e; color: #fff; transition: transform 0.18s ease, background 0.18s ease;
