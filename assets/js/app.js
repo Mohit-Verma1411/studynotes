@@ -95,8 +95,10 @@
     if (!ov) return;
     ov.classList.add("open");
     const input = $("#searchInput");
-    input.value = initial || input.value;
-    input.focus();
+    if (input) {
+      input.value = (typeof initial === "string") ? initial : "";
+      input.focus();
+    }
     runSearch();
   }
   function closeSearch() { const ov = $("#searchOverlay"); if (ov) ov.classList.remove("open"); }
@@ -670,6 +672,18 @@
     if (heroSearchBtn) heroSearchBtn.addEventListener("click", function () {
       openSearch(($("#heroSearch") || {}).value || "");
     });
+    // The always-visible topbar search box launches the live search overlay.
+    // (On note pages it is the only search affordance.)
+    const topSearch = $(".topbar-search input");
+    if (topSearch) {
+      const launchTop = function () { openSearch(topSearch.value); };
+      topSearch.addEventListener("focus", launchTop);
+      topSearch.addEventListener("click", launchTop);
+      topSearch.addEventListener("input", launchTop);
+      topSearch.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { e.preventDefault(); launchTop(); }
+      });
+    }
     const searchInput = $("#searchInput");
     if (searchInput) searchInput.addEventListener("input", runSearch);
     if (searchInput) searchInput.addEventListener("keydown", function (e) {
