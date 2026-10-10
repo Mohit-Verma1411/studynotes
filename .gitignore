@@ -1,0 +1,8 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# temporary rendered snapshot used to capture screenshots
+__snap.html
