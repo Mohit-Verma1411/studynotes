@@ -8,6 +8,8 @@ Built with plain **HTML, CSS, JavaScript and real SQLite** (via
 [sql.js](https://sql.js.org/), the WebAssembly build of SQLite running in the
 browser). No frameworks, no build step, no CDN at runtime.
 
+**🔗 Live demo:** <https://mohit-verma1411.github.io/studynotes/>
+
 ![subjects](https://img.shields.io/badge/subjects-6-blue)
 ![notes](https://img.shields.io/badge/notes-12-brightgreen)
 ![words](https://img.shields.io/badge/words-~20k-lightgrey)
